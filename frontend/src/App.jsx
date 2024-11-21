@@ -8,6 +8,7 @@ import Footer from "./components/Footer"
 
 // Import Pages
 import Home from "./pages/Homepage"
+import About from './pages/About';
 import Documentation from "./pages/Documentation"
 import Features from './pages/Features';
 import Demo from "./pages/Demo"
@@ -38,15 +39,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home*" element={<Home />} />
 
+           {/* Features*/}
+           <Route path="/about/*" element={<About />} />
+
               {/* Features*/}
               <Route path="/features/*" element={<Features />} />
 
           {/* Documentation */}
           <Route path="/documentation/*" element={<Documentation />} />
-
-      
-         
-
 
          
           {/* Demo */}

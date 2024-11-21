@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { Sun, Moon, ChevronDown, MoveRight } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import Logo from "../assets/images/sila.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +38,12 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <div className="w-8 h-8 rounded-md flex items-center justify-center">
-                  <h1 className="text2xl font-semibold">SILA</h1>
+                <div className="w-24 h-24 rounded-md flex items-center justify-center">
+                  <img
+                    src={Logo}
+                    alt="sila logo"
+                    className="w-full h-full object-contain filter dark:invert"
+                  />
                 </div>
               </div>
             </div>
@@ -49,6 +54,11 @@ const Navbar = () => {
                 href="/"
                 label="Home"
                 isActive={location.pathname === "/"}
+              />
+              <NavLink
+                href="/about"
+                label="About"
+                isActive={location.pathname === "/about"}
               />
               <NavLink
                 href="/features"
@@ -65,13 +75,13 @@ const Navbar = () => {
                 label="Open Source"
                 isActive={location.pathname === "/open-source"}
               />
-              <NavLink
+              {/* <NavLink
                 href="/contact-us"
                 label="Contact us"
                 isActive={location.pathname === "/contact-us"}
-              />
+              /> */}
 
-              <Link to="/bootcamp">
+              <Link to="/demo">
                 <button className="flex items-center gap-2 bg-gradient-to-r from-gray-900 via-gray-800 to-black hover:from-black hover:to-gray-800 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                   Demo
                 </button>
@@ -145,40 +155,40 @@ const Navbar = () => {
                 isActive={location.pathname === "/"}
               />
               <MobileNavLink
-                href="/about-us"
-                label="About us"
+                href="/about"
+                label="About"
                 onClick={handleMobileNavClick}
-                isActive={location.pathname === "/about-us"}
+                isActive={location.pathname === "/about"}
               />
               <MobileNavLink
-                href="/team"
-                label="Team"
+                href="/features"
+                label="Features"
                 onClick={handleMobileNavClick}
-                isActive={location.pathname === "/team"}
+                isActive={location.pathname === "/features"}
               />
               <MobileNavLink
-                href="/bootcamp"
-                label="Bootcamp"
+                href="/documentation"
+                label="Documentation"
                 onClick={handleMobileNavClick}
-                isActive={location.pathname === "/bootcamp"}
+                isActive={location.pathname === "/documentation"}
               />
               <MobileNavLink
-                href="/events"
-                label="Events"
+                href="/open-source"
+                label="Open Source"
                 onClick={handleMobileNavClick}
-                isActive={location.pathname === "/events"}
+                isActive={location.pathname === "/open-source"}
               />
-              <MobileNavLink
-                href="/blog"
-                label="Blog"
+              {/* <MobileNavLink
+                href="/contact-us"
+                label="Contact Us"
                 onClick={handleMobileNavClick}
-                isActive={location.pathname === "/blog"}
-              />
+                isActive={location.pathname === "/contact-us"}
+              /> */}
               <div className="pt-4">
                 <button
-                  className="block w-full text-center py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg"
+                  className="block w-full text-center py-2 bg-gradient-to-r from-gray-900 via-gray-800 to-black hover:from-black hover:to-gray-800 text-white rounded-lg"
                   onClick={() => {
-                    navigate("/auth");
+                    navigate("/demo");
                     handleMobileNavClick();
                   }}
                 >
@@ -198,7 +208,7 @@ const NavLink = ({ href, label, isActive }) => (
     to={href}
     className={`text-sm transition-colors duration-200 ${
       isActive
-        ? "text-purple-600 dark:text-purple-400"
+        ? "bg-gray-800 text-gray-200 dark:bg-gray-500 rounded-full px-3 py-2"
         : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
     }`}
   >
@@ -212,7 +222,7 @@ const MobileNavLink = ({ href, label, onClick, isActive }) => (
     onClick={onClick}
     className={`block text-base font-medium px-4 py-2 rounded-lg transition-colors duration-200 ${
       isActive
-        ? "bg-purple-100 text-purple-700 dark:bg-purple-700 dark:text-white"
+        ? "bg-slate-400 text-gray-700 dark:bg-gray-700 dark:text-white"
         : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
     }`}
   >

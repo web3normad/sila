@@ -1,7 +1,7 @@
 # Sila: Social Wallet Connect Simplified
 
 <p align="center">
-  <img src="https://github.com/web3normad/sila/raw/main/frontend/src/images/sila.png" alt="Sila Logo" width="200" />
+  <img src="./frontend/src/images/sila.png" alt="Sila Logo" width="200" />
 </p>
 
 > A plug-and-play hook for seamless social sign-ins and wallet connections with advanced account abstraction. Open-source and developer-friendly.
